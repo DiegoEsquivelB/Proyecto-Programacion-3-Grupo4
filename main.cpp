@@ -3,7 +3,7 @@
 #include <curl/curl.h>
 #include <stdlib.h>
 #include <fstream>
-#include <cstdlib> // Para la función system()
+#include <cstdlib> // Para la funciÃ³n system()
 #include <map>
 #include <windows.h>
 #include <direct.h>
@@ -120,7 +120,7 @@ void ConecAPI(){
 
         // Set the request headers
         struct curl_slist *headers = NULL;
-       headers = curl_slist_append(headers, "X-Goog-Api-Key: AIzaSyB1jVENUASuXcCcTda3JfuyOeZc_TICDGk");
+       headers = curl_slist_append(headers, "CLAVE API ACA");
         headers = curl_slist_append(headers, "Content-Type: application/json");
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 
@@ -152,13 +152,13 @@ void ConecAPI(){
         	
          for (size_t i = 0; i < translatedText.length(); ++i) {
         		char c = translatedText[i];
-        if (c != '\"') { // Si el carácter no es una comilla doble
-            frase2 += c; // Lo añadimos a la nueva cadena
+        if (c != '\"') { // Si el carÃ¡cter no es una comilla doble
+            frase2 += c; // Lo aÃ±adimos a la nueva cadena
         }
     }
     
  
-    frase2.erase(0, 1); // Borra el primer carácter de la cadena
+    frase2.erase(0, 1); // Borra el primer carÃ¡cter de la cadena
 
 
     	GenerarHistorial(frase1,frase2, lenguajeInicial,lenguajeFinal,usuario);
@@ -585,8 +585,8 @@ void menuPrincipal(int &opc,string usuario){
 
 void Submenu1(int &opc, string texto, string lenguaje){
 	cout<<"---------------Si(1), No(2)--------------------------"<<endl;
-	cout<<"1. ¿DESEAS REPRODUCIR LA PALABRA O TEXTO?"<<endl;
-	cout<<"2. ¿DESEAS INGRESAR OTRA PALABRA O TEXTO? "<<endl;
+	cout<<"1. Â¿DESEAS REPRODUCIR LA PALABRA O TEXTO?"<<endl;
+	cout<<"2. Â¿DESEAS INGRESAR OTRA PALABRA O TEXTO? "<<endl;
 	cout<<"3. Regresar al menu principal"<<endl;
 	cin	>>opc;
 	
@@ -608,7 +608,7 @@ switch(opc) {
 void ReproducirSonido(string texto, string lenguaje){
 	
 	cout<<texto;
-    // Comando para llamar a espeak desde la línea de comandos con el idioma especificado
+    // Comando para llamar a espeak desde la lÃ­nea de comandos con el idioma especificado
     std::string comando = "espeak -v " + lenguaje + " \"" + texto + "\" --stdout > output.wav";
 
     // Llamar a espeak para generar el archivo de audio
